@@ -1,6 +1,6 @@
 # PDF Booklet
 
-OS X / macOS command line utility to reorder pages in a PDF file for booklet printing.
+macOS command line utility to reorder pages in a PDF file for booklet printing.
 
 pdfbooklet copies pages from a pdf file to a new pdf file in an order appropriate for booklet 
 printing. If the number of pages in the input file is not a multiple of 4, empty pages get inserted.
@@ -27,7 +27,7 @@ Print layout settings to use for the newly created PDF:
 
 ## Runtime Requirements
 
-OS X 10.9 (Mavericks), OS X 10.10 (Yosemite), OS X 10.11 (El Capitan), or macOS 10.12 (Sierra), or macOS 13.x (Ventura).
+OS X 10.9 (Mavericks), OS X 10.10 (Yosemite), OS X 10.11 (El Capitan), or macOS 10.12 (Sierra), macOS 13.x (Ventura), macOS 15.x (Sequoia).
 
 ## Install via [Homebrew](http://brew.sh)
 
@@ -37,15 +37,33 @@ You can simply install it by executing:
 
 ## Build and Install from Source
 
-There are no extra requirements except Xcode.
+There are no extra requirements except Xcode. To build from command line simply run `xcodebuild` in the project root folder.
 
-To build from command line simply run `xcodebuild` in the project root folder. If you prefer to
-use the Xcode IDE, open `pdfbooklet.xcproject` and choose `Build` from the `Product` Menu. 
+## Build and Install from Source with Xcode (IDE)
 
-Installation steps:
+1. open `pdfbooklet.xcproject` with Xcode
+2. Compile with `Product > Build`
+3. Export executable with: `Product > Archive` Then, save as etc. and choose a target folder
+4. Install with: `% cp [WHER-YOU-SAVED-YOUR-APP]/Products/usr/local/bin/pdfbooklet  /usr/local/bin`
+5. Test run it with:
+```
+% pdfbooklet
+Usage: pdfbooklet <inputfile> <outputfile>
+PDF Booklet Version 1.0.1
+```
+
+### Problem Solution
+
+Problem:
+- clang: error: SDK does not contain 'libarclite' at the path '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/arc/libarclite_macosx.a'; try increasing the minimum deployment target then: increasing the minimum deployment target
+
+Soltion:
+- increasing the minimum deployment target within Xcode
+
+
+## Installation steps:
 
 - Copy the `pdfbooklet` executable to /usr/local/bin/
 - Copy the `pdfbooklet.1` man page to /usr/local/share/man/man1/
 
-Alternatively you can also invoke `xcodebuild install DSTROOT=/` to build and install the executable
-in one step. This does not install the man page.
+Alternatively you can also invoke `xcodebuild install DSTROOT=/` to build and install the executable in one step. This does not install the man page.
