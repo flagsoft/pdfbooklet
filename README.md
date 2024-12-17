@@ -41,9 +41,11 @@ There are no extra requirements except Xcode. To build from command line simply 
 
 ## Build and Install from Source with Xcode (IDE)
 
+(Tested with macOS 15.1.1 Sequoia with Xcode 16.0)
+
 1. open `pdfbooklet.xcproject` with Xcode
 2. Compile with `Product > Build`
-3. Export executable with: `Product > Archive` Then, save as etc. and choose a target folder
+3. Export executable with: `Product > Archive` Then, `Distribute Content > Custom, Next. Built Products, Next. Export As` and choose a target folder.
 4. Install with: `% cp [WHER-YOU-SAVED-YOUR-APP]/Products/usr/local/bin/pdfbooklet  /usr/local/bin`
 5. Test run it with:
 ```
@@ -58,7 +60,7 @@ Problem:
 - clang: error: SDK does not contain 'libarclite' at the path '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/arc/libarclite_macosx.a'; try increasing the minimum deployment target then: increasing the minimum deployment target
 
 Soltion:
-- increasing the minimum deployment target within Xcode
+- increasing the minimum deployment target within Xcode. Select your project in the file list on the left (pdfbooklet), select TARGET pdfbooklet, Minimum Deployment 11.5 (or whatever).
 
 
 ## Installation steps:
