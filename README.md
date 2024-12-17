@@ -59,7 +59,7 @@ PDF Booklet Version 1.0.1
 Problem:
 - clang: error: SDK does not contain 'libarclite' at the path '/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/arc/libarclite_macosx.a'; try increasing the minimum deployment target then: increasing the minimum deployment target
 
-Soltion:
+Solution:
 - increasing the minimum deployment target within Xcode. Select your project in the file list on the left (pdfbooklet), select TARGET pdfbooklet, Minimum Deployment 11.5 (or whatever).
 
 
